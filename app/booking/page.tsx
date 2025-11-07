@@ -268,7 +268,7 @@ export default function BookingPage() {
                       <span className="text-2xl">👑</span>
                     </div>
                     <CardTitle className="text-purple-800">{t.expertPackage.title}</CardTitle>
-                    <div className="text-3xl font-bold text-purple-900">23 990 ₽</div>
+                    <div className="text-3xl font-bold text-purple-900">25 990 ₽</div>
                     <div className="text-ml text-purple-600">{language === "ru" ? "12 занятий" : "12 lessons"}</div>
                     <div className="text-xs text-purple-500"></div>
                   </CardHeader>

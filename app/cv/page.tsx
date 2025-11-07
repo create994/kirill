@@ -326,7 +326,7 @@ I was fortunate to work with other leading chess coaches of the country: <strong
                   <div className="p-3 bg-blue-50 rounded-lg border border-blue-300 relative">
                     <div className="flex items-center justify-between">
                       <a
-                        href="https://drive.google.com/file/d/13FPZWnz9jq3Ned2P3hjoqd_AePDitpZW/view?usp=sharing"
+                        href="https://drive.google.com/file/d/1dXPnYfLe8UU46e1FLvJ5v8GGTM1qnMQX/view?usp=drivesdk"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-900 font-medium hover:text-blue-600 hover:underline transition-colors"
@@ -340,7 +340,7 @@ I was fortunate to work with other leading chess coaches of the country: <strong
                         className="text-blue-600 hover:text-blue-800 p-1 h-auto"
                       >
                         <a
-                          href="https://drive.google.com/file/d/13FPZWnz9jq3Ned2P3hjoqd_AePDitpZW/view?usp=sharing"
+                          href="https://drive.google.com/file/d/1dXPnYfLe8UU46e1FLvJ5v8GGTM1qnMQX/view?usp=drivesdk"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -349,7 +349,7 @@ I was fortunate to work with other leading chess coaches of the country: <strong
                       </Button>
                     </div>
                     <a
-                      href="https://drive.google.com/file/d/13FPZWnz9jq3Ned2P3hjoqd_AePDitpZW/view?usp=sharing"
+                      href="https://drive.google.com/file/d/1dXPnYfLe8UU46e1FLvJ5v8GGTM1qnMQX/view?usp=drivesdk"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs text-blue-600 mt-1 hover:text-blue-800 hover:underline cursor-pointer block"

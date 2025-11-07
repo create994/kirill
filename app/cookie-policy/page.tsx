@@ -14,7 +14,7 @@ export default function CookiePolicyPage() {
       title: "Политика использования файлов cookie",
       subtitle: "Информация о том, как мы используем файлы cookie на нашем сайте",
       lastUpdated: "Последнее обновление: 18 июля 2025",
-      backBtn: "На главную",
+      backBtn: "Назад",
 
       whatAreCookies: {
         title: "Что такое файлы cookie?",
@@ -78,7 +78,7 @@ export default function CookiePolicyPage() {
       title: "Cookie Policy",
       subtitle: "Information about how we use cookies on our website",
       lastUpdated: "Last updated: July 18, 2025",
-      backBtn: "To the main page",
+      backBtn: "Back",
 
       whatAreCookies: {
         title: "What are cookies?",
@@ -277,7 +277,7 @@ However, if you do this, you may have to manually adjust some preferences every 
         {/* Back Navigation */}
         <div className="text-center mt-8">
           <Button asChild variant="outline" className="border-blue-200 text-white hover:bg-blue-800/30 bg-transparent">
-            <Link href="/">
+            <Link href="/videos">
               <ArrowLeft className="w-4 h-4 mr-2" />
               {t.backBtn}
             </Link>

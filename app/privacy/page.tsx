@@ -1,8 +1,5 @@
 "use client"
 import { useLanguage } from "@/hooks/useLanguage"
-import { Button } from "@/components/ui/button"
-import { ArrowLeft } from "lucide-react"
-import Link from "next/link"
 
 export default function PrivacyPage() {
   const { language, isLoaded } = useLanguage()
@@ -476,16 +473,6 @@ export default function PrivacyPage() {
               </p>
             </div>
           </div>
-        </div>
-
-        {/* Back Navigation */}
-        <div className="text-center mt-8">
-          <Button asChild variant="outline" className="border-blue-200 text-white hover:bg-blue-800/30 bg-transparent">
-            <Link href="/">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              {language === "ru" ? "На главную" : "Back to Home"}
-            </Link>
-          </Button>
         </div>
       </div>
     </div>
