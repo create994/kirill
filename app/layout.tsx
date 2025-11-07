@@ -6,7 +6,7 @@ import Navigation from "@/components/navigation"
 
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap", // Optimize font loading
+  display: "swap",
   preload: true,
 })
 
@@ -34,7 +34,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://cal.com" />
         <link rel="dns-prefetch" href="https://rutube.ru" />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} overflow-x-hidden`}>
         <Navigation />
         <main>{children}</main>
       </body>

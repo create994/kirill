@@ -95,6 +95,8 @@ export default function HomePage() {
               height={200}
               className="mx-auto rounded-full border-4 border-blue-200 shadow-blue-lg object-cover"
               style={{ aspectRatio: "1/1" }}
+              decoding="async"
+              loading="eager"
             />
           </div>
 
@@ -152,7 +154,7 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold text-white text-center mb-12">{t.whyChoose}</h2>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-blue-soft bg-white/90 backdrop-blur-sm shadow-blue-lg hover-lift">
+            <Card className="border-blue-soft bg-white/90 shadow-blue-lg hover-lift">
               <CardHeader className="text-center">
                 <Trophy className="w-12 h-12 text-blue-600 mx-auto mb-4" />
                 <CardTitle className="text-blue-800">{t.fideMasterTitle}</CardTitle>
@@ -162,7 +164,7 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="border-blue-soft bg-white/90 backdrop-blur-sm shadow-blue-lg hover-lift">
+            <Card className="border-blue-soft bg-white/90 shadow-blue-lg hover-lift">
               <CardHeader className="text-center">
                 <Users className="w-12 h-12 text-blue-600 mx-auto mb-4" />
                 <CardTitle className="text-blue-800">{t.youngTitle}</CardTitle>
@@ -172,7 +174,7 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="border-blue-soft bg-white/90 backdrop-blur-sm shadow-blue-lg hover-lift">
+            <Card className="border-blue-soft bg-white/90 shadow-blue-lg hover-lift">
               <CardHeader className="text-center">
                 <Star className="w-12 h-12 text-blue-600 mx-auto mb-4" />
                 <CardTitle className="text-blue-800">{t.personalTitle}</CardTitle>
@@ -186,12 +188,12 @@ export default function HomePage() {
       </section>
 
       {/* Quick Links */}
-      <section className="py-16 px-4 bg-gradient-chess-dark backdrop-blur-md">
+      <section className="py-16 px-4 bg-gradient-chess-dark">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-white text-center mb-12">{t.exploreTitle}</h2>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="border-blue-soft bg-white/90 backdrop-blur-sm hover:shadow-blue-xl transition-shadow hover-lift">
+            <Card className="border-blue-soft bg-white/90 hover:shadow-blue-xl transition-shadow hover-lift">
               <CardHeader>
                 <CardTitle className="text-blue-800">{t.videosTitle}</CardTitle>
                 <CardDescription className="text-blue-600">{t.videosDesc}</CardDescription>
@@ -203,7 +205,7 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="border-blue-soft bg-white/90 backdrop-blur-sm hover:shadow-blue-xl transition-shadow hover-lift">
+            <Card className="border-blue-soft bg-white/90 hover:shadow-blue-xl transition-shadow hover-lift">
               <CardHeader>
                 <CardTitle className="text-blue-800">{t.scheduleTitle}</CardTitle>
                 <CardDescription className="text-blue-600">{t.scheduleDesc}</CardDescription>
