@@ -38,7 +38,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://cal.com" />
         <link rel="dns-prefetch" href="https://rutube.ru" />
       </head>
-      <body className={`${inter.className} overflow-x-hidden`}>
+      <body className={`${inter.className} overflow-x-hidden antialiased`}>
         <Navigation />
         <main>{children}</main>
       </body>
