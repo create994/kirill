@@ -240,7 +240,7 @@ export default function BookingPage() {
                       <span className="text-2xl">⚡</span>
                     </div>
                     <CardTitle className="text-blue-800">{t.intermediatePackage.title}</CardTitle>
-                    <div className="text-3xl font-bold text-blue-900">20 990 ₽</div>
+                    <div className="text-3xl font-bold text-blue-900">20 490 ₽</div>
                     <div className="text-ml text-blue-600">{language === "ru" ? "10 занятий" : "10 lessons"}</div>
                     <div className="text-xs text-blue-500"></div>
                     <div className="text-center">
@@ -268,7 +268,7 @@ export default function BookingPage() {
                       <span className="text-2xl">👑</span>
                     </div>
                     <CardTitle className="text-purple-800">{t.expertPackage.title}</CardTitle>
-                    <div className="text-3xl font-bold text-purple-900">25 990 ₽</div>
+                    <div className="text-3xl font-bold text-purple-900">25 490 ₽</div>
                     <div className="text-ml text-purple-600">{language === "ru" ? "12 занятий" : "12 lessons"}</div>
                     <div className="text-xs text-purple-500"></div>
                   </CardHeader>
