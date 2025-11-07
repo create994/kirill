@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import Navigation from "@/components/navigation"
@@ -16,9 +16,13 @@ export const metadata: Metadata = {
     "Профессиональные уроки шахмат с Мастером ФИДЕ Кириллом Шошиным. Улучшите свою шахматную игру с персональным обучением и проверенными методами преподавания.",
   keywords: "шахматы, преподаватель шахмат, FIDE мастер, уроки шахмат, обучение шахматам",
   authors: [{ name: "Кирилл Шошин" }],
-  viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
     generator: 'v0.app'
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 }
 
 export default function RootLayout({
