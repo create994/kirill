@@ -5,7 +5,7 @@ import "./globals.css"
 import Navigation from "@/components/navigation"
 
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
   display: "swap",
   preload: true,
 })
