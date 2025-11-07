@@ -1,12 +1,12 @@
 import type React from "react"
-import type { Metadata, Viewport } from "next"
+import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import Navigation from "@/components/navigation"
 
 const inter = Inter({
-  subsets: ["latin", "cyrillic"],
-  display: "swap",
+  subsets: ["latin"],
+  display: "swap", // Optimize font loading
   preload: true,
 })
 
@@ -16,13 +16,9 @@ export const metadata: Metadata = {
     "Профессиональные уроки шахмат с Мастером ФИДЕ Кириллом Шошиным. Улучшите свою шахматную игру с персональным обучением и проверенными методами преподавания.",
   keywords: "шахматы, преподаватель шахмат, FIDE мастер, уроки шахмат, обучение шахматам",
   authors: [{ name: "Кирилл Шошин" }],
+  viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
     generator: 'v0.app'
-}
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -38,7 +34,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://cal.com" />
         <link rel="dns-prefetch" href="https://rutube.ru" />
       </head>
-      <body className={`${inter.className} overflow-x-hidden antialiased`}>
+      <body className={inter.className}>
         <Navigation />
         <main>{children}</main>
       </body>

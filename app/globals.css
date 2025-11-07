@@ -54,34 +54,63 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground;
   }
 }
 
 @layer utilities {
-  /* Simplified gradient backgrounds to reduce rendering issues - removed complex opacity layering */
   .bg-gradient-chess {
     background: linear-gradient(
       135deg,
-      #060f1e 0%,
-      #0c1e3d 20%,
-      #1e3a5f 40%,
-      #256396 50% /* Fixed: Added space between hex color and percentage */,
-      #3b82b4 80%,
-      #60a5d2 100%
+      rgba(6, 15, 30, 0.95) 0%,
+      rgba(12, 30, 61, 0.9) 20%,
+      rgba(30, 58, 95, 0.85) 40%,
+      rgba(37, 99, 150, 0.8) 60%,
+      rgba(59, 130, 180, 0.75) 80%,
+      rgba(96, 165, 210, 0.7) 100%
     );
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
   }
 
   .bg-gradient-chess-dark {
-    background: linear-gradient(135deg, #060f1e 0%, #0c1e3d 25%, #1e3a5f 50%, #259396 75%, #3b82b4 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(6, 15, 30, 0.98) 0%,
+      rgba(12, 30, 61, 0.95) 25%,
+      rgba(30, 58, 95, 0.9) 50%,
+      rgba(37, 99, 150, 0.85) 75%,
+      rgba(59, 130, 180, 0.8) 100%
+    );
+    backdrop-filter: blur(35px);
+    -webkit-backdrop-filter: blur(35px);
   }
 
   .bg-gradient-calm {
-    background: linear-gradient(135deg, #060f1e 0%, #0c1e3d 25%, #1e3a5f 50%, #259396 75%, #3b82b4 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(6, 15, 30, 0.9) 0%,
+      rgba(12, 30, 61, 0.85) 25%,
+      rgba(30, 58, 95, 0.8) 50%,
+      rgba(37, 99, 150, 0.75) 75%,
+      rgba(59, 130, 180, 0.7) 100%
+    );
+    backdrop-filter: blur(45px);
+    -webkit-backdrop-filter: blur(45px);
   }
 
   .bg-gradient-chess-light {
-    background: linear-gradient(135deg, #93c5fd 0%, #60a5fa 20%, #3b82f6 40%, #2563eb 60%, #1e3a8a 80%, #0c1e3d 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(147, 197, 253, 0.9) 0%,
+      rgba(96, 165, 250, 0.85) 20%,
+      rgba(59, 130, 246, 0.8) 40%,
+      rgba(37, 99, 235, 0.75) 60%,
+      rgba(30, 58, 138, 0.7) 80%,
+      rgba(12, 30, 61, 0.65) 100%
+    );
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
   }
 
   .text-gradient-navy {
@@ -127,10 +156,8 @@
     border-color: rgba(59, 130, 180, 0.3);
   }
 
-  /* Added will-change and optimized transform for better performance */
   .hover-lift {
     transition: all 0.3s ease;
-    will-change: transform;
   }
 
   .hover-lift:hover {
@@ -172,17 +199,5 @@
 
   .text-secondary-light {
     color: #e2e8f0;
-  }
-}
-
-/* Fallback for systems where backdrop-filter causes artifacts */
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .backdrop-blur-sm,
-  .backdrop-blur-md,
-  .backdrop-blur-lg,
-  .backdrop-blur-xl {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    background-color: rgba(12, 30, 61, 0.12) !important; /* subtle fallback tint */
   }
 }
