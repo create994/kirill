@@ -292,111 +292,11 @@ export default function VideosPage() {
                     onClick={() => handleVideoClick(video, index)}
                   >
                     <Play className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
-                    {selectedVideoIndex === index ? (language === "ru" ? "Скрыть видео" : "Hide Video") : t.watchVideo}
+                    {t.watchVideo}
                   </Button>
                 </CardContent>
               </Card>
 
-              {/* Inline Video Player */}
-              {selectedVideoIndex === index && selectedVideo && (
-                <Card className="border-blue-300 bg-white/90 backdrop-blur-sm shadow-lg">
-                  <CardHeader>
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-                      <h3 className="text-base sm:text-xl font-bold text-gray-900 pr-2">
-                        {selectedVideo.titleWithLink ? (
-                          <>
-                            <Link
-                              href="/shereshevsky"
-                              className="text-blue-700 hover:text-blue-900 hover:underline cursor-pointer"
-                            >
-                              {language === "ru" ? "Михаил Шерешевский" : "Mikhail Shereshevsky"}
-                            </Link>
-                            {language === "ru" ? " о Кирилле Шошине" : " about Kirill Shoshin"}
-                          </>
-                        ) : (
-                          <span dangerouslySetInnerHTML={{ __html: selectedVideo.title }} />
-                        )}
-                      </h3>
-                      <div className="flex gap-2 flex-shrink-0">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          asChild
-                          className="border-blue-600 text-blue-600 bg-transparent text-xs sm:text-sm"
-                        >
-                          <a href={selectedVideo.url} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                            <span className="hidden sm:inline">{t.openInNewTab}</span>
-                            <span className="sm:hidden">Открыть</span>
-                          </a>
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => {
-                            setSelectedVideo(null)
-                            setSelectedVideoIndex(null)
-                          }}
-                          className="text-gray-400 hover:text-gray-600"
-                        >
-                          <X className="w-4 h-4 sm:w-5 sm:h-5" />
-                        </Button>
-                      </div>
-                    </div>
-                  </CardHeader>
-
-                  <CardContent className="p-0">
-                    {/* Video Container - Responsive */}
-                    <div className="relative bg-black" style={{ paddingBottom: "56.25%", height: 0 }}>
-                      <iframe
-                        src={selectedVideo.embedUrl}
-                        className="absolute top-0 left-0 w-full h-full"
-                        frameBorder="0"
-                        allowFullScreen
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        title={selectedVideo.title}
-                      />
-                    </div>
-
-                    {/* Video Info Footer */}
-                    <div className="p-3 sm:p-4 bg-gray-50">
-                      <p
-                        className="text-gray-700 text-sm sm:text-base mb-3"
-                        dangerouslySetInnerHTML={{ __html: selectedVideo.description }}
-                      />
-                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-3">
-                        {selectedVideo.level && (
-                          <Badge variant="outline" className={`${getLevelColor(selectedVideo.level)} text-xs`}>
-                            {selectedVideo.level}
-                          </Badge>
-                        )}
-                        <div className="flex items-center text-gray-600 text-sm">
-                          <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                          {selectedVideo.duration}
-                        </div>
-                      </div>
-                      {selectedVideo.fullPodcastUrl && (
-                        <div className="mt-3 sm:mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-                          <p className="text-xs sm:text-sm text-blue-700 mb-2">
-                            {language === "ru" ? "Посмотрите полный подкаст:" : "Watch the full podcast:"}
-                          </p>
-                          <Button
-                            asChild
-                            variant="outline"
-                            size="sm"
-                            className="border-blue-600 text-blue-600 bg-transparent hover:bg-amber-50 text-xs sm:text-sm"
-                          >
-                            <a href={selectedVideo.fullPodcastUrl} target="_blank" rel="noopener noreferrer">
-                              <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                              {t.watchFullPodcast}
-                            </a>
-                          </Button>
-                        </div>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              )}
             </div>
           ))}
         </div>
@@ -435,6 +335,109 @@ export default function VideosPage() {
           </Button>
         </div>
 
+        {/* Fullscreen Video Modal */}
+        {selectedVideo && (
+          <div
+            className="fixed inset-0 z-50 bg-black bg-opacity-95 flex items-center justify-center p-4"
+            onClick={() => {
+              setSelectedVideo(null)
+              setSelectedVideoIndex(null)
+            }}
+          >
+            <div
+              className="relative w-full max-w-6xl bg-black rounded-lg overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  setSelectedVideo(null)
+                  setSelectedVideoIndex(null)
+                }}
+                className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white"
+              >
+                <X className="w-5 h-5 sm:w-6 sm:h-6" />
+              </Button>
+
+              {/* Video Container */}
+              <div className="relative bg-black" style={{ paddingBottom: "56.25%", height: 0 }}>
+                <iframe
+                  src={selectedVideo.embedUrl}
+                  className="absolute top-0 left-0 w-full h-full"
+                  frameBorder="0"
+                  allowFullScreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  title={selectedVideo.title}
+                />
+              </div>
+
+              {/* Video Info Footer */}
+              <div className="p-4 sm:p-6 bg-gray-900 text-white">
+                <h3 className="text-lg sm:text-xl font-bold mb-2">
+                  {selectedVideo.titleWithLink ? (
+                    <>
+                      <Link
+                        href="/shereshevsky"
+                        className="text-blue-400 hover:text-blue-300 hover:underline cursor-pointer"
+                      >
+                        {language === "ru" ? "Михаил Шерешевский" : "Mikhail Shereshevsky"}
+                      </Link>
+                      {language === "ru" ? " о Кирилле Шошине" : " about Kirill Shoshin"}
+                    </>
+                  ) : (
+                    <span dangerouslySetInnerHTML={{ __html: selectedVideo.title }} />
+                  )}
+                </h3>
+                <p
+                  className="text-gray-300 text-sm sm:text-base mb-4"
+                  dangerouslySetInnerHTML={{ __html: selectedVideo.description }}
+                />
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                  <div className="flex items-center gap-3">
+                    {selectedVideo.level && (
+                      <Badge variant="outline" className={`${getLevelColor(selectedVideo.level)} text-xs`}>
+                        {selectedVideo.level}
+                      </Badge>
+                    )}
+                    <div className="flex items-center text-gray-400 text-sm">
+                      <Clock className="w-4 h-4 mr-1" />
+                      {selectedVideo.duration}
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      asChild
+                      className="border-blue-400 text-blue-400 bg-transparent hover:bg-blue-400/10 text-xs sm:text-sm"
+                    >
+                      <a href={selectedVideo.url} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                        {t.openInNewTab}
+                      </a>
+                    </Button>
+                    {selectedVideo.fullPodcastUrl && (
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="sm"
+                        className="border-amber-400 text-amber-400 bg-transparent hover:bg-amber-400/10 text-xs sm:text-sm"
+                      >
+                        <a href={selectedVideo.fullPodcastUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                          {t.watchFullPodcast}
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Privacy Section */}
         <div className="mt-8 pt-6 border-t border-blue-300/30">
           <div className="text-center">
@@ -448,9 +451,9 @@ export default function VideosPage() {
                 {language === "ru" ? "Политика использования файлов cookie" : "Cookie Policy"}
               </a>
               <span className="hidden sm:inline text-blue-400">•</span>
-              <span className="text-blue-300">
+              <a href="/privacy" className="text-blue-300 hover:text-white hover:underline transition-colors">
                 {language === "ru" ? "Политика конфиденциальности" : "Privacy Policy"}
-              </span>
+              </a>
             </div>
           </div>
         </div>

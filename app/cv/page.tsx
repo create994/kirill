@@ -58,8 +58,8 @@ export default function CVPage() {
         studentReviews: "Отзывы учеников",
         reviews: [
           {
-            text: "Дочери очень понравилось занятие! Сказала, что тренер рассказывает много интересного, а не заставляет решать задачи все занятие, как прошлый… Будем продолжать, спасибо!!",
-            author: "Ольга",
+            text: "Хочу выразить огромную благодарность Кириллу за замечательное обучение шахматам моего сына. Его профессионализм, терпение и поддержка просто неоценимы. Грамотная речь, понятное изложение материала, системный подход, умение подмечать сильные и слабые стороны и целенаправленная работа над ними то, что отличает нашего тренера. И что немаловажно - Кирилл сам участвует в турнирах и для занятия подбирает интересные примеры из своих партий. Это всегда вдохновляет и мотивирует.\n\nРебёнок занимается с Кириллом чуть больше полугода и с нетерпением ждёт каждого занятия. За это время уровень игры значительно повысился, и уже есть первые награды. Рекомендую Кирилла как прекрасного тренера всем, кто любит шахматы и нацелен на результат.",
+            author: "Сергей",
           },
           {
             text: "Заинтересовался шахматами в период пандемии и начал смотреть обучающий контент на ютубе. Далее решил перейти на более серьезный уровень - попробовать позаниматься с тренером и обратился к Кириллу. С того времени мы продолжаем регулярно заниматься и я ни разу не пожалел. Вы нигде не найдете настолько понятного объяснения дебютных схем и техники эндшпиля!",
@@ -68,6 +68,14 @@ export default function CVPage() {
           {
             text: "Замечательный тренер! Если Вас интересует прогресс в совокупности с увлекательной подачей материала, то я настоятельно рекомендую Кирилла. Особенно хочется отметить качество файлов и дебютных разработок, которыми он делится.",
             author: "Иван",
+          },
+          {
+            text: "Дочери очень понравилось занятие! Тренер рассказывает много интересного. Будем продолжать!",
+            author: "Ольга",
+          },
+          {
+            text: "Приобрела уроки по шахматам в качестве подарка для племянника. Кирилл прекрасный преподаватель, способный доступно объяснить материал и усилить интерес ребенка к шахматам. Большое спасибо!",
+            author: "Мария",
           },
         ],
       },
@@ -117,8 +125,8 @@ I was fortunate to work with other leading chess coaches of the country: <strong
         studentReviews: "Student Reviews",
         reviews: [
           {
-            text: "My daughter really enjoyed the lesson! She said that the coach explains a lot of interesting things, and doesn't force you to solve problems all lesson long, like the previous one... We will continue, thank you!!",
-            author: "Olga",
+            text: "I would like to express my deep gratitude to Kirill for the excellent chess training he provides to my son. His professionalism, patience, and support are truly invaluable. Clear communication, well-structured explanations, a systematic approach, the ability to identify strengths and weaknesses, and targeted work on them — these are the qualities that set our coach apart. And importantly, Kirill actively competes in tournaments himself and selects engaging examples from his own games for the lessons. This is always inspiring and motivating.\n\nMy son has been studying with Kirill for a little over six months and eagerly looks forward to every session. During this time, his level of play has improved significantly, and he has already earned his first awards. I highly recommend Kirill as an excellent coach to anyone who loves chess and is committed to achieving strong results.",
+            author: "Sergey",
           },
           {
             text: "I became interested in chess during the pandemic and started watching educational content on YouTube. Then I decided to move to a more serious level - try studying with a coach and contacted Kirill. Since then we continue to study regularly and I have never regretted it. You will not find such a clear explanation of opening schemes and endgame technique anywhere!",
@@ -127,6 +135,14 @@ I was fortunate to work with other leading chess coaches of the country: <strong
           {
             text: "Wonderful coach! If you are interested in progress combined with engaging material presentation, then I strongly recommend Kirill. I especially want to note the quality of files and opening developments that he shares.",
             author: "Ivan",
+          },
+          {
+            text: "My daughter really enjoyed the lesson! The coach explains a lot of interesting things. We will continue!",
+            author: "Olga",
+          },
+          {
+            text: "I purchased chess lessons as a gift for my nephew. Kirill is an excellent instructor who can explain the material clearly and spark a child's interest in chess. Many thanks!",
+            author: "Maria",
           },
         ],
       },
@@ -140,6 +156,10 @@ I was fortunate to work with other leading chess coaches of the country: <strong
   }
 
   const t = content[language]
+  const [featuredReview, ...otherReviews] = t.reviews
+  const stackedAuthors = language === "ru" ? new Set(["Ольга", "Мария"]) : new Set(["Olga", "Maria"])
+  const standardReviews = otherReviews.filter((review) => !stackedAuthors.has(review.author))
+  const stackedReviews = otherReviews.filter((review) => stackedAuthors.has(review.author))
 
   return (
     <div className="min-h-screen bg-gradient-calm py-8">
@@ -326,7 +346,7 @@ I was fortunate to work with other leading chess coaches of the country: <strong
                   <div className="p-3 bg-blue-50 rounded-lg border border-blue-300 relative">
                     <div className="flex items-center justify-between">
                       <a
-                        href="https://drive.google.com/file/d/1dXPnYfLe8UU46e1FLvJ5v8GGTM1qnMQX/view?usp=drivesdk"
+                        href="https://drive.google.com/file/d/13FPZWnz9jq3Ned2P3hjoqd_AePDitpZW/view?usp=sharing"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-900 font-medium hover:text-blue-600 hover:underline transition-colors"
@@ -340,7 +360,7 @@ I was fortunate to work with other leading chess coaches of the country: <strong
                         className="text-blue-600 hover:text-blue-800 p-1 h-auto"
                       >
                         <a
-                          href="https://drive.google.com/file/d/1dXPnYfLe8UU46e1FLvJ5v8GGTM1qnMQX/view?usp=drivesdk"
+                          href="https://drive.google.com/file/d/13FPZWnz9jq3Ned2P3hjoqd_AePDitpZW/view?usp=sharing"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -349,7 +369,7 @@ I was fortunate to work with other leading chess coaches of the country: <strong
                       </Button>
                     </div>
                     <a
-                      href="https://drive.google.com/file/d/1dXPnYfLe8UU46e1FLvJ5v8GGTM1qnMQX/view?usp=drivesdk"
+                      href="https://drive.google.com/file/d/13FPZWnz9jq3Ned2P3hjoqd_AePDitpZW/view?usp=sharing"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs text-blue-600 mt-1 hover:text-blue-800 hover:underline cursor-pointer block"
@@ -384,19 +404,91 @@ I was fortunate to work with other leading chess coaches of the country: <strong
               <CardTitle className="text-primary flex items-center">{t.studentReviews}</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid md:grid-cols-3 gap-4">
-                {t.reviews.map((review, index) => (
-                  <div key={index} className="bg-blue-50 p-4 rounded-lg border border-blue-300 shadow-blue">
+              <div className="space-y-4">
+                {featuredReview && (
+                  <div className="bg-gradient-to-r from-blue-100 via-blue-50 to-blue-100 p-5 rounded-2xl border border-blue-300 shadow-blue-lg">
                     <div className="flex items-start mb-3">
-                      <Quote className="w-5 h-5 text-blue-600 mr-2 mt-1 flex-shrink-0" />
-                      <p className="text-blue-800 leading-relaxed">{review.text}</p>
+                      <Quote className="w-5 h-5 text-blue-700 mr-2 mt-0.5 flex-shrink-0" />
+                      <p className="text-blue-900 leading-relaxed whitespace-pre-line">{featuredReview.text}</p>
                     </div>
-                    <div className="flex items-center justify-end">
-                      <Star className="w-4 h-4 text-blue-600 mr-2" />
-                      <span className="text-blue-700 font-semibold">— {review.author}</span>
+                    <div className="flex items-center justify-end mt-3">
+                      <Star className="w-4 h-4 text-blue-700 mr-2 fill-blue-700" />
+                      <span className="text-blue-900 font-semibold">— {featuredReview.author}</span>
                     </div>
                   </div>
-                ))}
+                )}
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-4">
+                    {standardReviews.map((review, index) => {
+                      if (index % 2 === 0) {
+                        return (
+                          <div
+                            key={`standard-${review.author}-${index}`}
+                            className="bg-blue-50 p-5 rounded-2xl border border-blue-300 shadow-blue hover:shadow-blue-lg transition-shadow"
+                          >
+                            <div className="flex items-start mb-3">
+                              <Quote className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+                              <p className="text-blue-800 leading-relaxed whitespace-pre-line">{review.text}</p>
+                            </div>
+                            <div className="flex items-center justify-end mt-3">
+                              <Star className="w-4 h-4 text-blue-600 mr-2 fill-blue-600" />
+                              <span className="text-blue-700 font-semibold">— {review.author}</span>
+                            </div>
+                          </div>
+                        )
+                      }
+                      return null
+                    })}
+                    {stackedReviews.length > 0 && stackedReviews[0] && (
+                      <div className="bg-blue-50 p-5 rounded-2xl border border-blue-300 shadow-blue hover:shadow-blue-lg transition-shadow">
+                        <div className="flex items-start mb-3">
+                          <Quote className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+                          <p className="text-blue-800 leading-relaxed whitespace-pre-line">{stackedReviews[0].text}</p>
+                        </div>
+                        <div className="flex items-center justify-end mt-3">
+                          <Star className="w-4 h-4 text-blue-600 mr-2 fill-blue-600" />
+                          <span className="text-blue-700 font-semibold">— {stackedReviews[0].author}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-4">
+                    {standardReviews.map((review, index) => {
+                      if (index % 2 === 1) {
+                        return (
+                          <div
+                            key={`standard-${review.author}-${index}`}
+                            className="bg-blue-50 p-5 rounded-2xl border border-blue-300 shadow-blue hover:shadow-blue-lg transition-shadow"
+                          >
+                            <div className="flex items-start mb-3">
+                              <Quote className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+                              <p className="text-blue-800 leading-relaxed whitespace-pre-line">{review.text}</p>
+                            </div>
+                            <div className="flex items-center justify-end mt-3">
+                              <Star className="w-4 h-4 text-blue-600 mr-2 fill-blue-600" />
+                              <span className="text-blue-700 font-semibold">— {review.author}</span>
+                            </div>
+                          </div>
+                        )
+                      }
+                      return null
+                    })}
+                    {stackedReviews.length > 1 && stackedReviews[1] && (
+                      <div className="bg-blue-50 p-5 rounded-2xl border border-blue-300 shadow-blue hover:shadow-blue-lg transition-shadow">
+                        <div className="flex items-start mb-3">
+                          <Quote className="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+                          <p className="text-blue-800 leading-relaxed whitespace-pre-line">{stackedReviews[1].text}</p>
+                        </div>
+                        <div className="flex items-center justify-end mt-3">
+                          <Star className="w-4 h-4 text-blue-600 mr-2 fill-blue-600" />
+                          <span className="text-blue-700 font-semibold">— {stackedReviews[1].author}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
